@@ -71,11 +71,12 @@ AdvPyCourseHomeWork/
 ## ▶️ How to Use This Repository
 
 Each session folder is **independent and self-contained** ✅
-
+```
 1️⃣ Navigate into the desired session folder
 2️⃣ Create and activate a virtual environment
 3️⃣ Install dependencies (if any)
 4️⃣ Follow the instructions in the session’s README
+```
 
 **Example:**
 
@@ -102,3 +103,4 @@ Each new session will follow the same principles:
 
 **PATEL Meet** ⭐
 Advanced Python Course
+
