@@ -1,9 +1,21 @@
-# 🚀 Advanced Python Course — Coursework Repository 🐍
+# 🚀 Advanced Python Course 🐍
+
+## Coursework Repository
 
 Welcome to my **Advanced Python Course** coursework repository 🎓
-This repository contains all course material, organised in a clear, academic, and professional structure, including coding sessions, practical work, and reference PDFs.
+This repository contains all course material organised in a clear, academic, and professional structure, including coding sessions, practical work, and reference PDFs.
 
 The goal is to keep everything **easy to navigate**, **well documented**, and **future-proof** for evaluations, reviews, and long-term reuse.
+
+---
+
+## 🔗 Quick Navigation
+
+* 📘 [Coding Sessions Overview](#-coding-sessions-overview)
+* 📄 [Course PDFs](#-course-pdfs)
+* 🛠️ [Travaux Pratiques](#-travaux-pratiques-practical-work)
+* ▶️ [How to Use This Repository](#-how-to-use-this-repository)
+* 🔮 [Future Content](#-future-content)
 
 ---
 
@@ -11,11 +23,14 @@ The goal is to keep everything **easy to navigate**, **well documented**, and **
 
 ```
 AdvPyCourseHomeWork/
-├── Sessions_PDFs/
-│   └── 📄 Lecture slides and session reference PDFs
-│
-├── Travaux_Pratiques/
-│   └── 🛠️ Practical exercises and applied assignments
+├── docs/
+│   ├── Sessions_PDFs/
+│   │   └── 📄 Lecture slides and session reference PDFs
+│   │
+│   ├── Travaux_Pratiques/
+│   │   └── 🛠️ Practical exercises and applied assignments
+│   │
+│   └── README.md   (optional index page for Pages)
 │
 ├── Session1_PATELMeet/
 ├── Session2_PATELMeet/
@@ -30,9 +45,9 @@ AdvPyCourseHomeWork/
 ## 📘 Coding Sessions Overview
 
 <details>
-  <summary>🟢 <strong>Session 1 — CSV Sales Analysis (Procedural Python)</strong></summary>
+<summary>🟢 <strong>Session 1 - CSV Sales Analysis (Procedural Python)</strong></summary>
 
-**Focus**
+### Focus
 
 * Professional Python project setup
 * Virtual environments (venv)
@@ -42,7 +57,7 @@ AdvPyCourseHomeWork/
 * KPI computation using pure functions
 * Command-line execution with arguments
 
-**Key Concepts**
+### Key Concepts
 
 * Separation of I/O and business logic
 * Reproducible environments
@@ -55,9 +70,9 @@ AdvPyCourseHomeWork/
 ---
 
 <details>
-  <summary>🔵 <strong>Session 2 — OOP SalesDataset (Object-Oriented Programming)</strong></summary>
+<summary>🔵 <strong>Session 2 - OOP SalesDataset (Object-Oriented Programming)</strong></summary>
 
-**Focus**
+### Focus
 
 * Object-Oriented Programming fundamentals
 * Designing clean class-based APIs
@@ -66,7 +81,7 @@ AdvPyCourseHomeWork/
 * Refactoring procedural code into OOP
 * Full data lifecycle: load → compute → export
 
-**Key Concepts**
+### Key Concepts
 
 * Classes and objects
 * Attributes vs methods
@@ -80,9 +95,9 @@ AdvPyCourseHomeWork/
 ---
 
 <details>
-  <summary>🟣 <strong>Session 3 — Advanced OOP Data Pipeline (CSV & JSON)</strong></summary>
+<summary>🟣 <strong>Session 3 - Advanced OOP Data Pipeline (CSV & JSON)</strong></summary>
 
-**Focus**
+### Focus
 
 * Advanced Object-Oriented Programming concepts
 * Inheritance and polymorphism
@@ -92,7 +107,7 @@ AdvPyCourseHomeWork/
 * Pythonic APIs using properties and dunder methods
 * Building flexible and extensible data pipelines
 
-**Key Concepts**
+### Key Concepts
 
 * Polymorphism and contracts
 * Separation of responsibilities
@@ -105,9 +120,14 @@ AdvPyCourseHomeWork/
 
 ---
 
-## 📄 Sessions PDFs
+## 📄 Course PDFs
 
-📁 Folder: `Sessions_PDFs/`
+📎 PDFs are also accessible via **GitHub Pages** for direct browser preview.
+
+<details>
+<summary>📘 <strong>Session Slides & Reference Material</strong></summary>
+
+📁 Folder: `docs/Sessions_PDFs/`
 
 This folder contains:
 
@@ -117,11 +137,12 @@ This folder contains:
 
 These documents are **read-only references** and complement the coding sessions.
 
----
+</details>
 
-## 🛠️ Travaux Pratiques (Practical Work)
+<details>
+<summary>🛠️ <strong>Travaux Pratiques</strong></summary>
 
-📁 Folder: `Travaux_Pratiques/`
+📁 Folder: `docs/Travaux_Pratiques/`
 
 This section contains:
 
@@ -131,20 +152,22 @@ This section contains:
 
 Each practical may be independent or linked to a session topic.
 
+</details>
+
 ---
 
 ## ▶️ How to Use This Repository
 
 Each coding session folder is **self-contained**.
 
-**General workflow:**
+### General workflow
 
 1. Navigate to the desired session folder
 2. Create and activate a virtual environment
 3. Install dependencies if required
 4. Follow the instructions in the session-specific README
 
-**Example:**
+### Example
 
 ```
 cd Session2_PATELMeet
@@ -161,7 +184,7 @@ As the course progresses:
 * PDFs and practicals will grow independently
 * Documentation will remain consistent and structured
 
-**Design principles:**
+### Design principles
 
 * Clear separation of concerns
 * Independent execution
@@ -172,6 +195,4 @@ As the course progresses:
 
 ## 👤 Author
 
-### PATEL Meet
-
-### Advanced Python Course
+# PATEL Meet |🎓 Advanced Python Course
