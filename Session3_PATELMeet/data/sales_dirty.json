@@ -1,0 +1,8 @@
+[
+  {"date":"2026-01-01","product":"coffee","quantity":2,"unit_price":1.8},
+  {"date":"2026-01-01","product":"tea","quantity":null,"unit_price":2.1},
+  {"date":"2026-01-02","product":"coffee","quantity":1,"unit_price":1.8},
+  {"date":"2026-01-02","product":"chocolate","quantity":3,"unit_price":"2,50"},
+  {"date":"2026-01-03","product":" tea ","quantity":2,"unit_price":2.1},
+  {"date":"2026-01-03","product":"coffee","quantity":"four","unit_price":1.8}
+]

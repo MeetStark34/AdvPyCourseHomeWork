@@ -1,4 +1,5 @@
 #!/bin/bash
+# ./sync.sh
 
 # Exit immediately if something fails
 set -e
@@ -35,5 +36,5 @@ else
   echo "⬆️ Pushing to GitHub..."
   git push origin "$BRANCH"
 fi
-
+ 
 echo "🎉 Sync complete"
