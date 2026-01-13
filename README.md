@@ -22,6 +22,7 @@ The goal is to keep everything **easy to navigate**, **well documented**, and **
 ## 🗂️ Repository Structure
 
 ```
+
 AdvPyCourseHomeWork/
 ├── docs/
 │   ├── Sessions_PDFs/
@@ -30,7 +31,7 @@ AdvPyCourseHomeWork/
 │   ├── Travaux_Pratiques/
 │   │   └── 🛠️ Practical exercises and applied assignments
 │   │
-│   └── README.md   (optional index page for Pages)
+│   └── README.md
 │
 ├── Session1_PATELMeet/
 ├── Session2_PATELMeet/
@@ -38,6 +39,7 @@ AdvPyCourseHomeWork/
 ├── [ Loading... ]
 │
 └── README.md
+
 ```
 
 ---
