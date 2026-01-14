@@ -43,4 +43,4 @@ Practical work may be independent or directly linked to a specific session.
 ---
 
 🎓 **Advanced Python Course**
-Author: **PATEL Meet**
+#Author: **PATEL Meet**
