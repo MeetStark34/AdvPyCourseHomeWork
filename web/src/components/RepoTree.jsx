@@ -1,47 +1,27 @@
-const RepoItem = ({ name, type }) => {
-  const icons = {
-    folder: { char: '📁', color: 'text-yellow-500' },
-    py: { char: '🐍', color: 'text-green-500' },
-    md: { char: '📝', color: 'text-blue-400' },
-    pdf: { char: '📕', color: 'text-red-500' }
-  };
-  
-  const style = icons[type] || { char: '📄', color: 'text-gray-400' };
-
-  return (
-    <div className="flex items-center gap-2 py-1.5 px-2 hover:bg-white/5 rounded cursor-pointer transition-colors font-mono text-sm">
-      <span className={style.color}>{style.char}</span>
-      <span>{name}</span>
-    </div>
-  );
-};
-
 export default function RepoTree() {
-  const structure = [
-    { name: 'docs', type: 'folder' },
-    { name: 'Session1_PATELMeet', type: 'folder' },
-    { name: 'Session2_PATELMeet', type: 'folder' },
-    { name: 'Session3_PATELMeet', type: 'folder' },
-    { name: 'web', type: 'folder' },
-    { name: 'README.md', type: 'md' },
+  const items = [
+    { name: 'docs', type: 'folder', color: 'text-yellow-500' },
+    { name: 'Session1_PATELMeet', type: 'folder', color: 'text-yellow-500' },
+    { name: 'Session2_PATELMeet', type: 'folder', color: 'text-yellow-500' },
+    { name: 'Session3_PATELMeet', type: 'folder', color: 'text-yellow-500' },
+    { name: 'web', type: 'folder', color: 'text-yellow-500' },
+    { name: 'README.md', type: 'md', color: 'text-blue-400' },
   ];
 
   return (
-    <div className="h-full flex flex-col">
-      <div className="flex-1">
-        <div className="text-[var(--accent)] font-bold mb-4 flex items-center gap-2">
-          <span>📂</span> AdvPyCourseHomeWork
+    <div className="font-mono text-sm space-y-1">
+      <div className="text-[#58a6ff] font-bold mb-2">📁 AdvPyCourseHomeWork</div>
+      {items.map(item => (
+        <div key={item.name} className="flex items-center gap-2 hover:bg-white/5 p-1 rounded cursor-pointer">
+          <span className={item.color}>{item.type === 'folder' ? '📂' : '📄'}</span>
+          <span>{item.name}</span>
         </div>
-        {structure.map(item => <RepoItem key={item.name} {...item} />)}
-      </div>
-
-      <div className="mt-6 pt-4 border-t border-[var(--border)] bg-black/10 p-3 rounded-lg">
-        <p className="text-[10px] font-bold opacity-40 mb-2 tracking-tighter uppercase">System Legend</p>
-        <div className="grid grid-cols-2 gap-y-1 text-[11px]">
+      ))}
+      <div className="mt-10 pt-4 border-t border-[#30363d]">
+        <div className="text-[10px] uppercase opacity-40 mb-2">Legend</div>
+        <div className="grid grid-cols-2 gap-2 text-[11px]">
           <span className="text-yellow-500">🟡 Folder</span>
-          <span className="text-green-500">🟢 Python</span>
           <span className="text-blue-400">🔵 Markdown</span>
-          <span className="text-red-500">🔴 PDF</span>
         </div>
       </div>
     </div>

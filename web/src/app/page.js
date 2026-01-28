@@ -7,79 +7,71 @@ import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
   const [activeWindow, setActiveWindow] = useState('README');
-  const [headerText, setHeaderText] = useState('');
+  const [header, setHeader] = useState('');
+  const [readme, setReadme] = useState('Loading...');
 
   useEffect(() => {
-    const fullText = "Created By MStrak";
+    const text = "Created By MStrak";
     let i = 0;
-    const timer = setInterval(() => {
-      setHeaderText(fullText.slice(0, i));
+    const interval = setInterval(() => {
+      setHeader(text.slice(0, i));
       i++;
-      if (i > fullText.length) clearInterval(timer);
+      if (i > text.length) clearInterval(interval);
     }, 100);
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/MeetStark34/AdvPyCourseHomeWork/main/README.md')
+      .then(res => res.text()).then(setReadme);
   }, []);
 
   return (
-    <div className="h-screen w-screen bg-[#0d1117] flex flex-col p-4 md:p-8 overflow-hidden">
-      
-      {/* Centered Title */}
-      <header className="mb-6 shrink-0">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-white font-mono tracking-tighter">
-          {headerText}<span className="animate-pulse">|</span>
-        </h1>
-      </header>
+    <main className="h-screen w-screen p-6 flex flex-col gap-6">
+      <h1 className="text-center text-4xl font-black tracking-tighter typing-cursor h-10">
+        {header}
+      </h1>
 
-      {/* Main Workspace: Side-by-Side on Desktop */}
-      <div className="flex-1 flex flex-col md:flex-row gap-6 min-h-0">
-        
-        {/* LEFT: Repo Tree (1/3 width) */}
-        <div className="w-full md:w-1/3 flex flex-col min-h-0">
-          <Window title="Notepad.exe - Repository" className="h-full">
+      <div className="flex-1 flex flex-col md:flex-row gap-6 overflow-hidden">
+        {/* LEFT 1/3 */}
+        <div className="w-full md:w-1/3 flex flex-col">
+          <Window title="File Explorer" className="h-full">
             <RepoTree />
           </Window>
         </div>
 
-        {/* RIGHT: Active Content (2/3 width) */}
-        <div className="w-full md:w-2/3 flex flex-col gap-4 min-h-0">
-          
-          {/* Navigation Bar */}
-          <nav className="flex gap-2 shrink-0">
-            {['README', 'Session Work', 'Session PDFs', 'TP'].map((tab) => (
-              <button
-                key={tab}
+        {/* RIGHT 2/3 */}
+        <div className="w-full md:w-2/3 flex flex-col gap-4">
+          <nav className="flex gap-2">
+            {['README', 'Session Work', 'PDFs'].map(tab => (
+              <button 
+                key={tab} 
                 onClick={() => setActiveWindow(tab)}
-                className={`px-3 py-1 text-[10px] font-bold rounded border transition-all ${
-                  activeWindow === tab 
-                  ? 'bg-[#238636] border-[#2ea043] text-white' 
-                  : 'bg-[#21262d] border-[#30363d] text-[#8b949e] hover:border-[#8b949e]'
+                className={`px-4 py-1 text-[10px] font-bold rounded border transition-all ${
+                  activeWindow === tab ? 'bg-[#238636] border-[#2ea043] text-white' : 'bg-[#21262d] border-[#30363d] text-[#8b949e]'
                 }`}
               >
                 {tab}
               </button>
             ))}
           </nav>
-
-          {/* Dynamic Window Container */}
-          <div className="flex-1 min-h-0">
+          
+          <div className="flex-1">
             {activeWindow === 'README' && (
-              <Window title="Preview - README.md" className="h-full">
+              <Window title="README.md" className="h-full">
                 <article className="prose prose-invert prose-sm max-w-none">
-                  <ReactMarkdown>{`# Advanced Python Course\nWelcome to the coursework repo.`}</ReactMarkdown>
+                  <ReactMarkdown>{readme}</ReactMarkdown>
                 </article>
               </Window>
             )}
-
             {activeWindow === 'Session Work' && (
-              <Window title="Session Viewer" className="h-full">
-                <div className="p-4 border border-dashed border-[#30363d] rounded text-center text-[#8b949e]">
-                  Select a session from the tree to view details.
-                </div>
+              <Window title="Workspace" className="h-full">
+                <SessionWindow data={{title: "Session 1", focus: ["Python"], concepts: ["Variables"]}} />
               </Window>
             )}
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
