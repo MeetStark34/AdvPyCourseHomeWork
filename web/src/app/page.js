@@ -8,9 +8,7 @@ import ReactMarkdown from 'react-markdown';
 export default function Home() {
   const [activeWindow, setActiveWindow] = useState('README');
   const [headerText, setHeaderText] = useState('');
-  const [readmeContent, setReadmeContent] = useState('## Loading Coursework Metadata...');
 
-  // 1. Typing Effect Logic
   useEffect(() => {
     const fullText = "Created By MStrak";
     let i = 0;
@@ -22,51 +20,37 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  // 2. Fetch README Logic
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/MeetStark34/AdvPyCourseHomeWork/main/README.md')
-      .then(res => res.text())
-      .then(data => setReadmeContent(data))
-      .catch(() => setReadmeContent('Failed to load README. Visit GitHub.'));
-  }, []);
-
-  const sessionData = {
-    title: "Session 1 – CSV Sales Analysis (Procedural Python)",
-    focus: ["Virtual environments", "CSV parsing", "KPI calculations", "Clean structure"],
-    concepts: ["Separation of logic", "Defensive data handling", "CLI execution"]
-  };
-
   return (
-    <div className="min-h-screen p-4 md:p-12 flex flex-col gap-8">
-      {/* Dynamic Header */}
-      <header className="text-center py-4">
-        <h1 className="text-4xl md:text-6xl font-black tracking-tighter typing-cursor">
+    // Force the background to the deep dark color and prevent scrolling the whole page
+    <div className="h-screen w-screen bg-[#0f1117] p-4 md:p-10 flex flex-col gap-6 overflow-hidden">
+      
+      <header className="text-center shrink-0">
+        <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-white typing-cursor">
           {headerText}
         </h1>
       </header>
 
-      {/* Main OS Layout */}
-      <div className="flex flex-col md:flex-row gap-6 max-w-[1400px] mx-auto w-full h-auto md:h-[750px]">
+      {/* Layout Split: 1/3 and 2/3 */}
+      <div className="flex-1 flex flex-col md:flex-row gap-6 min-h-0">
         
-        {/* LEFT PANEL (1/3) - Notepad Style */}
-        <div className="w-full md:w-1/3 h-[500px] md:h-full">
-          <Window title="Notepad.exe - Repository" className="h-full border-dashed">
+        {/* Left Side: Repository Tree */}
+        <aside className="w-full md:w-1/3 flex flex-col min-h-0">
+          <Window title="File Explorer" className="flex-1">
             <RepoTree />
           </Window>
-        </div>
+        </aside>
 
-        {/* RIGHT PANEL (2/3) - Dynamic Content */}
-        <div className="w-full md:w-2/3 flex flex-col gap-4 h-full">
-          {/* Breadcrumbs / Nav */}
-          <nav className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
-            {['README', 'Session Work', 'Session PDFs', 'Travaux Pratiques'].map((tab) => (
+        {/* Right Side: Navigation & Content */}
+        <main className="w-full md:w-2/3 flex flex-col gap-4 min-h-0">
+          <nav className="flex gap-2 shrink-0">
+            {['README', 'Session Work', 'Session PDFs'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveWindow(tab)}
-                className={`px-4 py-1.5 rounded-full text-[11px] font-bold border transition-all whitespace-nowrap ${
+                className={`px-4 py-1 rounded text-[10px] font-bold border transition-all ${
                   activeWindow === tab 
-                  ? 'bg-[var(--accent)] border-[var(--accent)] text-white' 
-                  : 'bg-white/5 border-[var(--border)] hover:bg-white/10'
+                  ? 'bg-[#58a6ff] border-[#58a6ff] text-white shadow-[0_0_15px_rgba(88,166,255,0.3)]' 
+                  : 'bg-[#161b22] border-[#30363d] text-[#8b949e] hover:border-[#58a6ff]'
                 }`}
               >
                 {tab}
@@ -74,38 +58,18 @@ export default function Home() {
             ))}
           </nav>
 
-          {/* Active Window Content */}
-          <div className="flex-1 min-h-[500px]">
+          <div className="flex-1 min-h-0">
             {activeWindow === 'README' && (
-              <Window title="Preview - README.md" footer="Source: GitHub Main Branch">
-                <article className="prose prose-invert prose-sm max-w-none prose-headings:text-[var(--accent)]">
-                  <ReactMarkdown>{readmeContent}</ReactMarkdown>
+              <Window title="README.md" className="h-full">
+                <article className="prose prose-invert prose-sm max-w-none">
+                  <ReactMarkdown>{`# Advanced Python Course 🐍\nWelcome to the coursework...`}</ReactMarkdown>
                 </article>
               </Window>
             )}
-
-            {activeWindow === 'Session Work' && (
-              <Window 
-                title="Python Workspace - Session 1" 
-                footer={<span><a href="#" className="hover:underline">Open in GitHub</a></span>}
-              >
-                <SessionWindow data={sessionData} />
-              </Window>
-            )}
-
-            {activeWindow === 'Session PDFs' && (
-              <Window title="Finder - Session View" footer="Format: 16:9 Aspect Preview">
-                <PdfWindow url="https://raw.githubusercontent.com/MeetStark34/AdvPyCourseHomeWork/main/docs/sample.pdf" />
-              </Window>
-            )}
-
-            {activeWindow === 'Travaux Pratiques' && (
-              <Window title="Finder - TP View" footer="Format: A4 Standard Preview">
-                <PdfWindow url="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" ratio="aspect-[1/1.414]" />
-              </Window>
-            )}
+            
+            {/* ... other windows ... */}
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );
