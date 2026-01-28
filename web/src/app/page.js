@@ -21,36 +21,38 @@ export default function Home() {
   }, []);
 
   return (
-    // Force the background to the deep dark color and prevent scrolling the whole page
-    <div className="h-screen w-screen bg-[#0f1117] p-4 md:p-10 flex flex-col gap-6 overflow-hidden">
+    <div className="h-screen w-screen bg-[#0d1117] flex flex-col p-4 md:p-8 overflow-hidden">
       
-      <header className="text-center shrink-0">
-        <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-white typing-cursor">
-          {headerText}
+      {/* Centered Title */}
+      <header className="mb-6 shrink-0">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-white font-mono tracking-tighter">
+          {headerText}<span className="animate-pulse">|</span>
         </h1>
       </header>
 
-      {/* Layout Split: 1/3 and 2/3 */}
+      {/* Main Workspace: Side-by-Side on Desktop */}
       <div className="flex-1 flex flex-col md:flex-row gap-6 min-h-0">
         
-        {/* Left Side: Repository Tree */}
-        <aside className="w-full md:w-1/3 flex flex-col min-h-0">
-          <Window title="File Explorer" className="flex-1">
+        {/* LEFT: Repo Tree (1/3 width) */}
+        <div className="w-full md:w-1/3 flex flex-col min-h-0">
+          <Window title="Notepad.exe - Repository" className="h-full">
             <RepoTree />
           </Window>
-        </aside>
+        </div>
 
-        {/* Right Side: Navigation & Content */}
-        <main className="w-full md:w-2/3 flex flex-col gap-4 min-h-0">
+        {/* RIGHT: Active Content (2/3 width) */}
+        <div className="w-full md:w-2/3 flex flex-col gap-4 min-h-0">
+          
+          {/* Navigation Bar */}
           <nav className="flex gap-2 shrink-0">
-            {['README', 'Session Work', 'Session PDFs'].map((tab) => (
+            {['README', 'Session Work', 'Session PDFs', 'TP'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveWindow(tab)}
-                className={`px-4 py-1 rounded text-[10px] font-bold border transition-all ${
+                className={`px-3 py-1 text-[10px] font-bold rounded border transition-all ${
                   activeWindow === tab 
-                  ? 'bg-[#58a6ff] border-[#58a6ff] text-white shadow-[0_0_15px_rgba(88,166,255,0.3)]' 
-                  : 'bg-[#161b22] border-[#30363d] text-[#8b949e] hover:border-[#58a6ff]'
+                  ? 'bg-[#238636] border-[#2ea043] text-white' 
+                  : 'bg-[#21262d] border-[#30363d] text-[#8b949e] hover:border-[#8b949e]'
                 }`}
               >
                 {tab}
@@ -58,18 +60,25 @@ export default function Home() {
             ))}
           </nav>
 
+          {/* Dynamic Window Container */}
           <div className="flex-1 min-h-0">
             {activeWindow === 'README' && (
-              <Window title="README.md" className="h-full">
+              <Window title="Preview - README.md" className="h-full">
                 <article className="prose prose-invert prose-sm max-w-none">
-                  <ReactMarkdown>{`# Advanced Python Course 🐍\nWelcome to the coursework...`}</ReactMarkdown>
+                  <ReactMarkdown>{`# Advanced Python Course\nWelcome to the coursework repo.`}</ReactMarkdown>
                 </article>
               </Window>
             )}
-            
-            {/* ... other windows ... */}
+
+            {activeWindow === 'Session Work' && (
+              <Window title="Session Viewer" className="h-full">
+                <div className="p-4 border border-dashed border-[#30363d] rounded text-center text-[#8b949e]">
+                  Select a session from the tree to view details.
+                </div>
+              </Window>
+            )}
           </div>
-        </main>
+        </div>
       </div>
     </div>
   );
