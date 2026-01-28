@@ -1,23 +1,24 @@
 # Advanced Python — Session 4.2
 
-## OOP Mini Exercises
+## NumPy Data Analysis Project
 
-This project is part of the **Advanced Python course — Session 4 (Part 2)**.
-It focuses on reinforcing core **Object-Oriented Programming (OOP)** principles through small, practical class-based exercises.
+This project is part of the **Advanced Python course — Session 4 (Part 1)**.
+It focuses on performing structured numerical data analysis using **NumPy** while building a clean, modular, and reproducible Python project.
 
-Unlike larger data projects, this session emphasizes **class design, encapsulation, and object behavior**, helping build a strong foundation for writing structured, maintainable Python code.
+The objective is to move from basic Python data handling to **vectorized numerical computation**, which is the foundation of scientific computing, data analysis, and machine learning workflows.
 
 ---
 
 ## Project Goals
 
-* Practice defining and using Python classes
-* Implement constructors (`__init__`) to manage object state
-* Use methods to model real-world behaviors
-* Apply encapsulation and controlled attribute access
-* Use `@property` for safe attribute exposure
-* Implement `__repr__` for readable object representation
-* Test object interactions through a simple main script
+* Practice numerical data handling using **NumPy arrays**
+* Build a robust CSV loader that converts data into numeric matrices
+* Handle missing or invalid values safely using `NaN`
+* Compute descriptive statistics efficiently using vectorized operations
+* Filter data based on column conditions
+* Compute a full correlation matrix
+* Export processed results to CSV files
+* Run the project from the command line using arguments
 
 ---
 
@@ -27,83 +28,96 @@ Unlike larger data projects, this session emphasizes **class design, encapsulati
 Session4.2_PATELMeet/
 ├── main.py
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+├── src/
+│   ├── np_io.py
+│   └── np_stats.py
+├── data/
+│   ├── measures_clean.csv
+│   └── measures_dirty.csv
+└── out/
+    ├── filtered_rows.csv
+    └── correlation_matrix.csv
 ```
-
----
-
-## Implemented Classes
-
-### 👩‍🎓 Student
-
-Represents a student with a name and a list of grades.
-
-**Features:**
-
-* Computes average grade
-* Determines pass/fail status
-* Provides readable object representation
-
----
-
-### 🏦 BankAccount
-
-Models a simple bank account system.
-
-**Features:**
-
-* Private balance storage (`_balance`)
-* Deposit and withdrawal methods with validation
-* Read-only balance access via `@property`
-* Encapsulation of internal state
-
----
-
-### 🚗 Car
-
-Represents a car with fuel management behavior.
-
-**Features:**
-
-* Fuel consumption when driving
-* Refueling capability
-* Basic validation of fuel usage
 
 ---
 
 ## Key Design Concepts
 
-* **Encapsulation** — Internal data is protected and modified only through methods
-* **Object Behavior** — Objects simulate real-world entities
-* **State Management** — Attributes track the state of each object
-* **Readable Objects** — `__repr__` improves debugging and output clarity
+* **Vectorized Computation**
+
+  * All statistics are computed using NumPy array operations
+  * Avoids slow Python loops
+
+* **Robust Data Loading**
+
+  * Invalid rows are skipped with warnings
+  * Missing values are converted to `NaN`
+  * Data is stored as a 2D NumPy array
+
+* **Modular Design**
+
+  * `np_io.py` handles data loading
+  * `np_stats.py` handles all numerical analysis
+  * `main.py` orchestrates the pipeline
+
+* **Defensive Programming**
+
+  * Prevents crashes from dirty or incomplete data
+  * Ensures numerical functions handle `NaN` correctly
+
+---
+
+## Setup Instructions
+
+Create and activate a virtual environment:
+
+```
+python -m venv venv
+```
+
+Activate the environment (OS-specific), then install dependencies:
+
+```
+pip install -r requirements.txt
+```
 
 ---
 
 ## How to Run
 
-From the project directory:
+From the project root directory:
 
 ```
-python main.py
+python main.py --input data/measures_clean.csv
+python main.py --input data/measures_dirty.csv
 ```
 
 ---
 
 ## Program Output
 
-The program demonstrates:
+When executed, the program:
 
-* Student average and pass status
-* Bank account balance updates after deposit and withdrawal
-* Car fuel consumption and refueling behavior
+* Loads numerical CSV data into a NumPy array
+* Prints column means, minimums, and maximums
+* Filters rows based on a column threshold
+* Computes a correlation matrix between columns
+* Exports results to:
+
+```
+out/filtered_rows.csv
+out/correlation_matrix.csv
+```
 
 ---
 
 ## Technologies Used
 
 * Python
-* Object-Oriented Programming principles
+* NumPy
+* argparse
+* Modular project structure
 
 ---
 

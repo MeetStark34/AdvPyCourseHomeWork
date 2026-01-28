@@ -1,69 +1,35 @@
-class Student:
-    def __init__(self, name: str, grades: list[float]):
-        self.name = name
-        self.grades = grades
+import argparse
+import numpy as np
+from src.np_io import load_numeric_csv
+from src.np_stats import (
+    column_means,
+    column_mins,
+    column_maxs,
+    filter_rows_by_column,
+    correlation_matrix,
+)
 
-    def average(self) -> float:
-        return sum(self.grades) / len(self.grades)
 
-    def has_passed(self) -> bool:
-        return self.average() >= 10
+def main():
+    parser = argparse.ArgumentParser(description="NumPy Data Analysis")
+    parser.add_argument("--input", required=True)
+    args = parser.parse_args()
 
-    def __repr__(self):
-        return f"Student(name={self.name}, avg={self.average():.2f})"
+    data = load_numeric_csv(args.input)
 
-class BankAccount:
-    def __init__(self, owner: str, balance: float = 0.0):
-        self.owner = owner
-        self._balance = balance
+    print("Means:", column_means(data))
+    print("Mins:", column_mins(data))
+    print("Maxs:", column_maxs(data))
 
-    @property
-    def balance(self):
-        return self._balance
+    filtered = filter_rows_by_column(data, col_index=1, threshold=30)
+    print("Rows with age > 30:", filtered)
 
-    def deposit(self, amount: float):
-        if amount > 0:
-            self._balance += amount
+    corr = correlation_matrix(data)
+    print("Correlation matrix:\n", corr)
 
-    def withdraw(self, amount: float):
-        if 0 < amount <= self._balance:
-            self._balance -= amount
+    np.savetxt("out/filtered_rows.csv", filtered, delimiter=",", fmt="%.2f")
+    np.savetxt("out/correlation_matrix.csv", corr, delimiter=",", fmt="%.3f")
 
-    def __repr__(self):
-        return f"BankAccount(owner={self.owner}, balance={self._balance:.2f})"
-
-class Car:
-    def __init__(self, brand: str, fuel: float):
-        self.brand = brand
-        self.fuel = fuel
-
-    def drive(self, distance: float):
-        fuel_needed = distance * 0.1
-        if fuel_needed <= self.fuel:
-            self.fuel -= fuel_needed
-            print(f"{self.brand} drove {distance} km")
-        else:
-            print("Not enough fuel")
-
-    def refuel(self, amount: float):
-        self.fuel += amount
-
-    def __repr__(self):
-        return f"Car(brand={self.brand}, fuel={self.fuel:.1f})"
 
 if __name__ == "__main__":
-    # Student
-    s = Student("Alice", [12, 15, 9])
-    print(s, "Passed:", s.has_passed())
-
-    # Bank account
-    acc = BankAccount("Bob", 100)
-    acc.deposit(50)
-    acc.withdraw(30)
-    print(acc)
-
-    # Car
-    car = Car("Toyota", 20)
-    car.drive(50)
-    car.refuel(10)
-    print(car)
+    main()
