@@ -4,7 +4,11 @@
 # Exit immediately if something fails
 set -e
 
+<<<<<<< HEAD
 PROJECT_DIR="/c/Users/Meet Stark/Documents/AdvPyCourseHomeWork-main"
+=======
+PROJECT_DIR="/c/Users/Meet Stark/Documents/AdvPyCourseHomeWork"
+>>>>>>> efe1a8a7bf8e0b9c42903f1869a313e123a7332a
 REPO_URL="https://github.com/MeetStark34/AdvPyCourseHomeWork"
 BRANCH="main"
 
