@@ -22,24 +22,21 @@ The goal is to keep everything **easy to navigate**, **well documented**, and **
 ## 🗂️ Repository Structure
 
 ```
-
 AdvPyCourseHomeWork/
 ├── docs/
 │   ├── Sessions_PDFs/
-│   │   └── 📄 Lecture slides and session reference PDFs
-│   │
 │   ├── Travaux_Pratiques/
-│   │   └── 🛠️ Practical exercises and applied assignments
-│   │
 │   └── README.md
 │
 ├── Session1_PATELMeet/
 ├── Session2_PATELMeet/
 ├── Session3_PATELMeet/
-├── [ Loading... ]
+├── Session4.1_PATELMeet/
+├── Session4.2_PATELMeet/
+├── Session5.1_PATELMeet/
+├── Session5.2_PATELMeet/
 │
 └── README.md
-
 ```
 
 ---
@@ -122,6 +119,99 @@ AdvPyCourseHomeWork/
 
 ---
 
+<details>
+<summary>🟠 <strong>Session 4.1 - NumPy Data Analysis</strong></summary>
+
+### Focus
+
+* Numerical computing with NumPy
+* Robust CSV loading with NaN handling
+* Vectorized statistical analysis
+* Data filtering and transformation
+* Correlation matrix computation
+* Exporting processed results
+
+### Key Concepts
+
+* NumPy arrays
+* Vectorized operations
+* Data cleaning
+* Scientific computing foundations
+
+📁 Folder: `Session4.1_PATELMeet/`
+
+</details>
+
+---
+
+<details>
+<summary>🟡 <strong>Session 4.2 - OOP Mini Exercises</strong></summary>
+
+### Focus
+
+* Class design fundamentals
+* Encapsulation and properties
+* State management through methods
+* Modeling real-world objects
+
+### Key Concepts
+
+* Classes and objects
+* Attributes and methods
+* Controlled data access
+
+📁 Folder: `Session4.2_PATELMeet/`
+
+</details>
+
+---
+
+<details>
+<summary>🔶 <strong>Session 5.1 - Deep Dive OOP</strong></summary>
+
+### Focus
+
+* Advanced class design
+* Composition between objects
+* Class variables and methods
+* State validation and defensive logic
+
+### Key Concepts
+
+* Encapsulation
+* Object relationships
+* Class-level behavior
+
+📁 Folder: `Session5.1_PATELMeet/`
+
+</details>
+
+---
+
+<details>
+<summary>🔴 <strong>Session 5.2 - Games & Minimax AI</strong></summary>
+
+### Focus
+
+* Game system design
+* Recursive Minimax algorithm
+* AI decision making
+* Game state trees and backtracking
+* Connect Four logic implementation
+
+### Key Concepts
+
+* Recursion
+* Decision trees
+* Algorithmic thinking
+* Game AI foundations
+
+📁 Folder: `Session5.2_PATELMeet/`
+
+</details>
+
+---
+
 ## 📄 Course PDFs
 
 📎 PDFs are also accessible via **GitHub Pages** for direct browser preview.
@@ -197,4 +287,4 @@ As the course progresses:
 
 ## 👤 Author
 
-# PATEL Meet |🎓 Advanced Python Course
+# PATEL Meet | 🎓 Advanced Python Course
