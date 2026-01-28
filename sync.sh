@@ -1,31 +1,24 @@
 #!/bin/bash
 # ./sync.sh
 
-# Exit immediately if something fails
-set -e
+set -e  # Stop if any command fails
 
-<<<<<<< HEAD
-PROJECT_DIR="/c/Users/Meet Stark/Documents/AdvPyCourseHomeWork-main"
-=======
-PROJECT_DIR="/c/Users/Meet Stark/Documents/AdvPyCourseHomeWork"
->>>>>>> efe1a8a7bf8e0b9c42903f1869a313e123a7332a
-REPO_URL="https://github.com/MeetStark34/AdvPyCourseHomeWork"
 BRANCH="main"
 
 echo "📁 Moving to project directory..."
-cd "$PROJECT_DIR"
+cd "$(dirname "$0")" || exit 1
 
 echo "🔍 Checking git repository..."
-git rev-parse --is-inside-work-tree > /dev/null 2>&1 || {
-  echo "❌ Not a git repository"
+if [ ! -d ".git" ]; then
+  echo "❌ Not a git repository. Initialize it first."
   exit 1
-}
+fi
 
 echo "🌿 Switching to branch: $BRANCH"
 git checkout "$BRANCH"
 
 echo "⬇️ Pulling latest changes..."
-git pull origin "$BRANCH" --allow-unrelated-histories
+git pull origin "$BRANCH"
 
 echo "➕ Adding changes..."
 git add .
@@ -38,7 +31,7 @@ else
   git commit -m "$COMMIT_MSG"
 
   echo "⬆️ Pushing to GitHub..."
-  git push origin "$BRANCH"
+  git push
 fi
- 
+
 echo "🎉 Sync complete"
