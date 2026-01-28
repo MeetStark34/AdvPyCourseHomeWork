@@ -15,8 +15,6 @@ export default {
     },
   },
   plugins: [
-    // Note: If this causes an error, you might need to use 
-    // import typography from '@tailwindcss/typography' at the top
-    require('@tailwindcss/typography'), 
+    require('@tailwindcss/typography'),
   ],
 }
