@@ -14,8 +14,8 @@ export default function SessionPDFsWindow({ onClose }: SessionPDFsWindowProps) {
   const pdfs = [
     { id: 1, title: 'Session 1 - Introduction', file: '/pdfs/Session 1.pdf' },
     { id: 2, title: 'Session 2 - OOP Fundamentals', file: '/pdfs/Session 2.pdf' },
-    { id: 3, title: 'Session 3 - Advanced Patterns', file: '/pdfs/Session 3.pdf' },
-    { id: 4, title: 'Session 4 - Data Structures', file: '/pdfs/Session 4.pdf' },
+    { id: 3, title: 'Session 3 - OOP Deep Dive', file: '/pdfs/Session 3.pdf' },
+    { id: 4, title: 'Session 4 - NumPy for Data Work', file: '/pdfs/Session 4.pdf' },
   ]
 
   const currentPDF = pdfs.find(p => p.title === selectedPDF)
