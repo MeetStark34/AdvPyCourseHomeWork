@@ -12,13 +12,13 @@ export default function SessionPDFsWindow({ onClose }: SessionPDFsWindowProps) {
   const [selectedPDF, setSelectedPDF] = useState<string | null>(null)
 
   const pdfs = [
-    { id: 1, title: 'Session 1 - Introduction', slides: 24 },
-    { id: 2, title: 'Session 2 - OOP Fundamentals', slides: 32 },
-    { id: 3, title: 'Session 3 - Advanced Patterns', slides: 28 },
-    { id: 4, title: 'Session 4 - Data Structures', slides: 35 },
-    { id: 5, title: 'Session 5 - Algorithms', slides: 40 },
-    { id: 6, title: 'Session 6 - Final Review', slides: 20 },
+    { id: 1, title: 'Session 1 - Introduction', file: '/pdfs/Session 1.pdf' },
+    { id: 2, title: 'Session 2 - OOP Fundamentals', file: '/pdfs/Session 2.pdf' },
+    { id: 3, title: 'Session 3 - Advanced Patterns', file: '/pdfs/Session 3.pdf' },
+    { id: 4, title: 'Session 4 - Data Structures', file: '/pdfs/Session 4.pdf' },
   ]
+
+  const currentPDF = pdfs.find(p => p.title === selectedPDF)
 
   return (
     <motion.div
@@ -42,9 +42,12 @@ export default function SessionPDFsWindow({ onClose }: SessionPDFsWindowProps) {
             <div className={`${styles.button} ${styles.maximize}`}></div>
           </div>
           <div className={styles.title}>Session PDFs</div>
-          <div className={styles.downloadButton}>
-            <span>⬇️</span>
-          </div>
+
+          {currentPDF && (
+            <a href={currentPDF.file} download className={styles.downloadButton}>
+              ⬇️
+            </a>
+          )}
         </div>
 
         <div className={styles.content}>
@@ -70,7 +73,6 @@ export default function SessionPDFsWindow({ onClose }: SessionPDFsWindowProps) {
                     <div className={styles.pdfIcon}>📑</div>
                     <div className={styles.pdfInfo}>
                       <div className={styles.pdfTitle}>{pdf.title}</div>
-                      <div className={styles.pdfMeta}>{pdf.slides} slides</div>
                     </div>
                   </motion.div>
                 ))}
@@ -89,16 +91,13 @@ export default function SessionPDFsWindow({ onClose }: SessionPDFsWindowProps) {
                 >
                   ← Back to Grid
                 </button>
+
                 <div className={styles.previewContainer}>
-                  <div className={styles.slidePlaceholder}>
-                    <div className={styles.slideContent}>
-                      <h2>{selectedPDF}</h2>
-                      <p>PDF Preview</p>
-                      <div className={styles.slideNote}>
-                        Maintaining presentation aspect ratio
-                      </div>
-                    </div>
-                  </div>
+                  <iframe
+                    src={currentPDF?.file}
+                    className={styles.pdfFrame}
+                    title="PDF Viewer"
+                  />
                 </div>
               </motion.div>
             )}
@@ -107,16 +106,8 @@ export default function SessionPDFsWindow({ onClose }: SessionPDFsWindowProps) {
 
         <div className={styles.footer}>
           <span className={styles.footerPath}>
-            📁 AdvPyCourseHomeWork/Session PDFs/
+            📁 AdvPyCourseHomeWork/docs/Sessions PDFs/
           </span>
-          <a 
-            href="https://github.com/yourusername/AdvPyCourseHomeWork/tree/main/Session%20PDFs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.githubLink}
-          >
-            View on GitHub →
-          </a>
         </div>
       </motion.div>
     </motion.div>

@@ -262,3 +262,10 @@
     text-align: center;
   }
 }
+
+.pdfFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
