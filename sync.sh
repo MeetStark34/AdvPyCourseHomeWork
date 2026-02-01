@@ -1,37 +1,51 @@
 #!/bin/bash
-# ./sync.sh
 
-set -e  # Stop if any command fails
+set -e
 
-BRANCH="main"
+MAIN_BRANCH="main"
+BACKUP_BRANCH="backup-local"
 
-echo "📁 Moving to project directory..."
+echo "📁 Moving to repo root..."
 cd "$(dirname "$0")" || exit 1
 
-echo "🔍 Checking git repository..."
-if [ ! -d ".git" ]; then
-  echo "❌ Not a git repository. Initialize it first."
-  exit 1
-fi
+echo "🔍 Checking git repo..."
+[ -d ".git" ] || { echo "❌ Not a git repo"; exit 1; }
 
-echo "🌿 Switching to branch: $BRANCH"
-git checkout "$BRANCH"
+echo "🌿 Current branch:"
+git branch --show-current
 
-echo "⬇️ Pulling latest changes..."
-git pull origin "$BRANCH"
-
-echo "➕ Adding changes..."
-git add .
+echo "➕ Staging all local changes..."
+git add -A
 
 if git diff --cached --quiet; then
-  echo "✅ No changes to commit"
+  echo "✅ No local changes"
 else
-  COMMIT_MSG="Sync $(date '+%Y-%m-%d %H:%M:%S')"
-  echo "📝 Committing: $COMMIT_MSG"
+  COMMIT_MSG="Local autosave $(date '+%Y-%m-%d %H:%M:%S')"
+  echo "💾 Saving local snapshot..."
   git commit -m "$COMMIT_MSG"
-
-  echo "⬆️ Pushing to GitHub..."
-  git push
 fi
 
-echo "🎉 Sync complete"
+echo "🧯 Creating safety backup branch..."
+git branch "$BACKUP_BRANCH" 2>/dev/null || true
+git checkout "$BACKUP_BRANCH"
+git merge "$MAIN_BRANCH" --no-edit || true
+
+echo "🌿 Switching back to $MAIN_BRANCH"
+git checkout "$MAIN_BRANCH"
+
+echo "⬇️ Fetching remote updates (no overwrite)..."
+git fetch origin
+
+echo "🔀 Merging remote safely..."
+git merge origin/$MAIN_BRANCH --no-edit || {
+  echo "⚠️ Merge conflict — your local work is safe. Resolve manually."
+  exit 1
+}
+
+echo "⬆️ Pushing main branch..."
+git push origin "$MAIN_BRANCH"
+
+echo "⬆️ Updating backup branch..."
+git push origin "$BACKUP_BRANCH" --force
+
+echo "🎉 Sync complete. Your work is backed up."
