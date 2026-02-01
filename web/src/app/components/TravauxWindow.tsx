@@ -12,13 +12,13 @@ export default function TravauxWindow({ onClose }: TravauxWindowProps) {
   const [selectedPDF, setSelectedPDF] = useState<string | null>(null)
 
   const pdfs = [
-    { title: 'Travaux Pratiques 1', file: '/pdfs/travaux/tp1.pdf' },
-    { title: 'Travaux Pratiques 2', file: '/pdfs/travaux/tp2.pdf' },
-    { title: 'Travaux Pratiques 3', file: '/pdfs/travaux/tp3.pdf' },
-    { title: 'Travaux Pratiques 4 - Part 1', file: '/pdfs/travaux/tp4-part1.pdf' },
-    { title: 'Travaux Pratiques 4 - Part 2', file: '/pdfs/travaux/tp4-part2.pdf' },
-    { title: 'Travaux Pratiques 5 - Part 1', file: '/pdfs/travaux/tp5-part1.pdf' },
-    { title: 'Travaux Pratiques 5 - Part 2', file: '/pdfs/travaux/tp5-part2.pdf' },
+    { title: 'Travaux Pratiques 1', file: '/pdfs/Travaux Pratiques 1.pdf' },
+    { title: 'Travaux Pratiques 2', file: '/pdfs/Travaux Pratiques 2.pdf' },
+    { title: 'Travaux Pratiques 3', file: '/pdfs/Travaux Pratiques 3.pdf' },
+    { title: 'Travaux Pratiques 4 - Part 1', file: '/pdfs/Travaux Pratiques 4 Part 1.pdf' },
+    { title: 'Travaux Pratiques 4 - Part 2', file: '/pdfs/Travaux Pratiques 4 Part 2.pdf' },
+    { title: 'Travaux Pratiques 5 - Part 1', file: '/pdfs/Travaux Pratiques 5 Part 1.pdf' },
+    { title: 'Travaux Pratiques 5 - Part 2', file: '/pdfs/Travaux Pratiques 5 Part 2.pdf' },
   ]
 
   const activePDF = pdfs.find(p => p.file === selectedPDF)
