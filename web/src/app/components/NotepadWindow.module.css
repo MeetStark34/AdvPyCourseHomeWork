@@ -120,3 +120,19 @@
     font-size: 0.75rem;
   }
 }
+
+.folder {
+  color: #fbbf24; /* amber */
+}
+
+.doc {
+  color: #60a5fa; /* blue */
+}
+
+.pdf {
+  color: #a78bfa; /* purple */
+}
+
+.script {
+  color: #34d399; /* green */
+}
