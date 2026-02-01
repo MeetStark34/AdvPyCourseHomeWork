@@ -25,17 +25,17 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
     <motion.div
       className={`${styles.container} ${open ? styles.open : styles.closed}`}
       initial={false}
-      animate={{ width: open ? 230 : 60 }}
+      animate={{ width: open ? 190 : 100 }}
       transition={{ type: 'spring', stiffness: 260, damping: 20 }}
     >
       {/* Toggle Button */}
       <motion.button
         className={styles.toggleButton}
         onClick={() => setOpen(!open)}
-        whileTap={{ scale: 0.9 }}
+        whileTap={{ scale: 1.5 }}
         title={open ? 'Collapse' : 'Expand'}
       >
-        {open ? '▶' : '◀'}
+        {open ? '➡' : '⬅'}
       </motion.button>
 
       {/* Theme Buttons */}
@@ -46,7 +46,7 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
               key={theme.id}
               className={`${styles.themeButton} ${currentTheme === theme.id ? styles.active : ''}`}
               onClick={() => onThemeChange(theme.id)}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.8 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
