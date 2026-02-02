@@ -11,12 +11,12 @@ The goal is to keep everything **easy to navigate**, **well documented**, and **
 
 ## 🔗 Quick Navigation
 
-* 📘 [Coding Sessions Overview](#coding-sessions-overview)
-* 🌐 [Web Interface](#web-interface)
-* 📄 [Course PDFs](#course-pdfs)
-* 🛠️ [Travaux Pratiques](#travaux-pratiques)
-* ▶️ [How to Use This Repository](#how-to-use-this-repository)
-* 🔮 [Future Content](#future-content)
+* 📘 [Coding Sessions Overview](#-coding-sessions-overview)
+* 🌐 [Web Interface](#-web-interface)
+* 📄 [Course PDFs](#-course-pdfs)
+* 🛠️ [Travaux Pratiques](#-travaux-pratiques-1)
+* ▶️ [How to Use This Repository](#-how-to-use-this-repository)
+* 🔮 [Future Content](#-future-content)
 
 
 ---
@@ -284,14 +284,9 @@ These documents are **read-only references** and complement the coding sessions.
 
 </details>
 
-## Travaux Pratiques
-<a id="travaux-pratiques"></a>
+---
 
-<details>
-<summary>🛠️ <strong>Travaux Pratiques</strong></summary>
-
-<details>
-<summary>🛠️ <strong>Travaux Pratiques</strong></summary>
+## 🛠️ Travaux Pratiques
 
 📁 Folder: `docs/Travaux_Pratiques/`
 
@@ -303,11 +298,9 @@ This section contains:
 
 Each practical may be independent or linked to a session topic.
 
-</details>
-
 ---
 
-## How to Use This Repository ▶️ 
+## ▶️ How to Use This Repository
 
 Each coding session folder is **self-contained**.
 
@@ -348,4 +341,4 @@ As the course progresses:
 
 ## 👤 Author
 
-# PATEL Meet | 🎓 Advanced Python Course
+**PATEL Meet** | 🎓 Advanced Python Course
