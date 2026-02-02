@@ -28,7 +28,7 @@ export default function LandingPage({ onEnter }: LandingPageProps) {
           transition={{ delay: 0.2, duration: 0.8 }}
         >
           Created By
-          <span className={styles.highlight}> MStrak</span>
+          <span className={styles.highlight}> MStark</span>
         </motion.h1>
         
         <motion.p

@@ -12,11 +12,32 @@ The goal is to keep everything **easy to navigate**, **well documented**, and **
 ## 🔗 Quick Navigation
 
 * 📘 [Coding Sessions Overview](#-coding-sessions-overview)
+* 🌐 [Web Interface](#-web-interface)
 * 📄 [Course PDFs](#-course-pdfs)
-* 🛠️ [Travaux Pratiques](#-travaux-pratiques-practical-work)
+* 🛠️ [Travaux Pratiques](#-travaux-pratiques-1)
 * ▶️ [How to Use This Repository](#-how-to-use-this-repository)
 * 🔮 [Future Content](#-future-content)
 
+
+---
+
+## ⚙️ Environment & Requirements
+
+This repository is designed to run with:
+
+- **Python 3.10+**
+- Standard library modules for most sessions
+- NumPy for Session 4.1
+
+Each session is intentionally **self-contained** and may define its own dependencies.
+
+It is recommended to use a virtual environment per session:
+
+```
+python -m venv venv
+source venv/bin/activate  # Mac/Linux
+.\venv\Scripts\activate     # Windows
+```
 ---
 
 ## 🗂️ Repository Structure
@@ -26,6 +47,13 @@ AdvPyCourseHomeWork/
 ├── docs/
 │   ├── Sessions_PDFs/
 │   ├── Travaux_Pratiques/
+│   └── README.md
+│
+├── web/
+│   ├── app/
+│   ├── components/
+│   ├── public/
+│   ├── package.json
 │   └── README.md
 │
 ├── Session1_PATELMeet/
@@ -212,6 +240,31 @@ AdvPyCourseHomeWork/
 
 ---
 
+## 🌐 Web Interface
+
+This repository also includes a modern **web-based interface** for navigating and presenting the coursework visually.
+
+📁 Folder: `web/`
+
+### Purpose
+
+The web application provides:
+
+* An interactive way to explore the project structure  
+* A visual representation of sessions and materials  
+* A portfolio-style presentation layer for the coursework  
+
+### Tech Stack
+
+* Next.js  
+* React  
+* Modern UI components  
+* Responsive design for desktop and mobile  
+
+This part of the repository is independent from the Python sessions and serves as a **presentation and exploration layer** rather than course logic.
+
+---
+
 ## 📄 Course PDFs
 
 📎 PDFs are also accessible via **GitHub Pages** for direct browser preview.
@@ -231,8 +284,9 @@ These documents are **read-only references** and complement the coding sessions.
 
 </details>
 
-<details>
-<summary>🛠️ <strong>Travaux Pratiques</strong></summary>
+---
+
+## 🛠️ Travaux Pratiques
 
 📁 Folder: `docs/Travaux_Pratiques/`
 
@@ -243,8 +297,6 @@ This section contains:
 * Additional practice material beyond the main sessions
 
 Each practical may be independent or linked to a session topic.
-
-</details>
 
 ---
 
@@ -282,9 +334,11 @@ As the course progresses:
 * Independent execution
 * Explicit documentation
 * Progressive complexity
+* Multi-interface support (CLI + Web)
+
 
 ---
 
 ## 👤 Author
 
-# PATEL Meet | 🎓 Advanced Python Course
+**PATEL Meet** | 🎓 Advanced Python Course
