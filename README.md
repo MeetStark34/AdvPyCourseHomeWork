@@ -11,12 +11,12 @@ The goal is to keep everything **easy to navigate**, **well documented**, and **
 
 ## 🔗 Quick Navigation
 
-* 📘 [Coding Sessions Overview](#-coding-sessions-overview)
-* 🌐 [Web Interface](#-web-interface)
-* 📄 [Course PDFs](#-course-pdfs)
-* 🛠️ [Travaux Pratiques](#-travaux-pratiques)
+* 📘 [Coding Sessions Overview](#coding-sessions-overview)
+* 🌐 [Web Interface](#web-interface)
+* 📄 [Course PDFs](#course-pdfs)
+* 🛠️ [Travaux Pratiques](#travaux-pratiques)
 * ▶️ [How to Use This Repository](#how-to-use-this-repository)
-* 🔮 [Future Content](#-future-content)
+* 🔮 [Future Content](#future-content)
 
 
 ---
