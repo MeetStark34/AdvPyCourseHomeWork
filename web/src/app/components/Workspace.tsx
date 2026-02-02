@@ -88,7 +88,7 @@ export default function Workspace({ theme }: WorkspaceProps) {
             <TravauxWindow onClose={() => handleNavigate('readme', ['Home'])} />
           )}
 
-          {activeWindow?.startsWith('session') && (
+          {activeWindow && activeWindow.startsWith('session') && activeWindow !== 'sessionPDFs' && (
             <SessionWindow
               sessionId={activeWindow}
               onClose={() => handleNavigate('readme', ['Home'])}

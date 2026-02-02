@@ -158,6 +158,10 @@ const sessionData: Record<string, SessionInfo> = {
 export default function SessionWindow({ sessionId, onClose }: SessionWindowProps) {
   const session = sessionData[sessionId]
 
+  if (!session) {
+    return null
+  }
+
   return (
     <motion.div className={styles.overlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}>
       <motion.div className={styles.window} initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()}>
