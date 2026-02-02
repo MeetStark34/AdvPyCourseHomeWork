@@ -1,4 +1,5 @@
 #!/bin/bash
+git pull origin main --rebase
 set -e
 
 MAIN_BRANCH="main"

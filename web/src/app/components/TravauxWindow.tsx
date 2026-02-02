@@ -64,7 +64,11 @@ export default function TravauxWindow({ onClose }: TravauxWindowProps) {
                 <button className={styles.backButton} onClick={() => setSelectedPDF(null)}>← Back to Grid</button>
 
                 <div className={styles.previewContainer}>
-                  <iframe src={selectedPDF} className={styles.pdfFrame} title="PDF Viewer" />
+                  <iframe
+                  src={selectedPDF}
+                  className={styles.pdfFrame}
+                  title="Travaux PDF Viewer"
+                />
                 </div>
               </motion.div>
             )}
