@@ -284,7 +284,11 @@ These documents are **read-only references** and complement the coding sessions.
 
 </details>
 
-### 🛠️ Travaux Pratiques
+## Travaux Pratiques
+<a id="travaux-pratiques"></a>
+
+<details>
+<summary>🛠️ <strong>Travaux Pratiques</strong></summary>
 
 <details>
 <summary>🛠️ <strong>Travaux Pratiques</strong></summary>
