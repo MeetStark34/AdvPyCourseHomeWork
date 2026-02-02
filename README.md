@@ -64,6 +64,9 @@ AdvPyCourseHomeWork/
 ├── Session5.1_PATELMeet/
 ├── Session5.2_PATELMeet/
 │
+│
+├── synclocal.sh
+├── syncweb.sh
 └── README.md
 ```
 
