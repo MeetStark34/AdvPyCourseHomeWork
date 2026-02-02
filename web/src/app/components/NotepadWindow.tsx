@@ -27,6 +27,12 @@ export default function NotepadWindow() {
 │   ├── <span className={styles.pdf}>📑 Sessions_PDFs/</span>{'\n'}
 │   ├── <span className={styles.pdf}>📑 Travaux_Pratiques/</span>{'\n'}
 │   └── <span className={styles.doc}>📄 README.md</span>{'\n'}
+├── <span className={styles.folder}>📁 web/</span>{'\n'}
+│   ├── <span className={styles.folder}>📁 app/</span>{'\n'}
+│   ├── <span className={styles.folder}>📁 components/</span>{'\n'}
+│   ├── <span className={styles.folder}>📁 public/</span>{'\n'}
+│   ├── <span className={styles.config}>📦 package.json</span>{'\n'}
+│   └── <span className={styles.doc}>📄 README.md</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session1_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session2_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session3_PATELMeet/</span>{'\n'}
@@ -34,9 +40,9 @@ export default function NotepadWindow() {
 ├── <span className={styles.folder}>📁 Session4.2_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session5.1_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session5.2_PATELMeet/</span>{'\n'}
-├── <span className={styles.folder}>📁 web/</span>{'\n'}
-├── <span className={styles.doc}>📄 README.md</span>{'\n'}
-└── <span className={styles.script}>⚙️ sync.sh</span>
+├── <span className={styles.script}>⚙️ synclocal.sh</span>{'\n'}
+├── <span className={styles.script}>⚙️ syncweb.sh</span>{'\n'}
+└── <span className={styles.doc}>📄 README.md</span>
         </pre>
         
         <div className={styles.legend}>
@@ -67,10 +73,14 @@ export default function NotepadWindow() {
             <span>PDF Documents</span>
           </div>
 
-          {/* NEW */}
           <div className={styles.legendItem}>
             <span className={styles.dot} style={{ background: '#22c55e' }}></span>
-            <span>Shell Script (.sh)</span>
+            <span>Shell Scripts (.sh)</span>
+          </div>
+
+          <div className={styles.legendItem}>
+            <span className={styles.dot} style={{ background: '#fb923c' }}></span>
+            <span>Config Files (.json)</span>
           </div>
         </div>
       </div>

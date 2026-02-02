@@ -25,7 +25,7 @@ export default function ThemeSwitcher({ currentTheme, onThemeChange }: ThemeSwit
     <motion.div
       className={`${styles.container} ${open ? styles.open : styles.closed}`}
       initial={false}
-      animate={{ width: open ? 190 : 100 }}
+      animate={{ width: open ? 185 : 110 }}
       transition={{ type: 'spring', stiffness: 260, damping: 20 }}
     >
       {/* Toggle Button */}
