@@ -193,6 +193,11 @@
   font-size: 1.25rem;
 }
 
+.folder { color: #fbbf24; }
+.py { color: #34d399; }
+.doc { color: #60a5fa; }
+.data { color: #f472b6; }
+
 .folderName {
   font-family: var(--font-mono);
   font-size: 0.875rem;

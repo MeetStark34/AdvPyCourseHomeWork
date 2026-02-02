@@ -10,7 +10,18 @@ import SessionPDFsWindow from './SessionPDFsWindow'
 import TravauxWindow from './TravauxWindow'
 import SessionWindow from './SessionWindow'
 
-type WindowType = 'readme' | 'sessionPDFs' | 'travaux' | 'session1' | 'session2' | 'session3' | null
+type WindowType =
+  | 'readme'
+  | 'sessionPDFs'
+  | 'travaux'
+  | 'session1'
+  | 'session2'
+  | 'session3'
+  | 'session4_1'
+  | 'session4_2'
+  | 'session5_1'
+  | 'session5_2'
+  | null
 
 interface WorkspaceProps {
   theme: string
@@ -29,8 +40,7 @@ export default function Workspace({ theme }: WorkspaceProps) {
     if (breadcrumbs.length > 1) {
       const newCrumbs = breadcrumbs.slice(0, -1)
       setBreadcrumbs(newCrumbs)
-      
-      // Determine which window to show based on breadcrumbs
+
       if (newCrumbs.length === 1) {
         setActiveWindow('readme')
       }
@@ -67,29 +77,20 @@ export default function Workspace({ theme }: WorkspaceProps) {
               </div>
             </div>
           )}
-          
+
           {activeWindow === 'readme' && <ReadmeWindow />}
+
           {activeWindow === 'sessionPDFs' && (
             <SessionPDFsWindow onClose={() => handleNavigate('readme', ['Home'])} />
           )}
+
           {activeWindow === 'travaux' && (
             <TravauxWindow onClose={() => handleNavigate('readme', ['Home'])} />
           )}
-          {activeWindow === 'session1' && (
+
+          {activeWindow?.startsWith('session') && (
             <SessionWindow
-              sessionNumber={1}
-              onClose={() => handleNavigate('readme', ['Home'])}
-            />
-          )}
-          {activeWindow === 'session2' && (
-            <SessionWindow
-              sessionNumber={2}
-              onClose={() => handleNavigate('readme', ['Home'])}
-            />
-          )}
-          {activeWindow === 'session3' && (
-            <SessionWindow
-              sessionNumber={3}
+              sessionId={activeWindow}
               onClose={() => handleNavigate('readme', ['Home'])}
             />
           )}
