@@ -40,7 +40,6 @@ export default function NotepadWindow() {
 ├── <span className={styles.folder}>📁 Session4.2_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session5.1_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session5.2_PATELMeet/</span>{'\n'}
-├── <span className={styles.folder}>📁 Session5.1_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session5.3_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session6.1_PATELMeet/</span>{'\n'}
 ├── <span className={styles.folder}>📁 Session6.2_PATELMeet/</span>{'\n'}
